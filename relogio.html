@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        
+    <div class="relogio"></div>
+    </body>
+    <script>
+        var relogio = document.querySelector('.relogio')
+        
+        function getHour(){
+            var data = new Date()
+            var h = data.getHours()
+            var m = data.getMinutes()
+            var s = data.getSeconds()
+
+          //  h = h < 10 ? "0"+h : h;
+          //  m = m < 10 ? "0"+m : m;
+          //  s = s < 10 ? "0"+s : s;
+
+          return h + ":" + m + ":" + s
+        }
+
+        function formata(t){
+            return t < 10 ? "0" + t : t;
+        }
+
+        function mostraRelogio(atual){
+            relogio.textContent = atual;
+        }
+
+        mostraRelogio(getHour())
+
+        setInterval(function(){
+            mostraRelogio(getHour())
+
+        }, 1000)
+    </script>
+</html>
